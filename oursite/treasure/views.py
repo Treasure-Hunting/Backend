@@ -209,7 +209,7 @@ class Reset(TemplateView):
     template_name = 'treasure/reset.html'
 
     def get(self, request, *args, **kwargs):
-        if (request.session.get('player_pk', -1) == -1):
+        if (request.session.get('player_pk', -1) == -1 or get_player(request).progress == 7):
             return redirect('treasure:progress-error')
         else:
             return super().get(request, *args, **kwargs)
@@ -237,6 +237,6 @@ def move_page_by_progress(request):
         return redirect('treasure:hints', hint_index=progress)
     elif (progress == 5):
         return redirect('treasure:go-goal')
-    elif (progress == 6):
+    elif (progress == 6 or progress == 7):
         return redirect('treasure:last')
     return Http404()
