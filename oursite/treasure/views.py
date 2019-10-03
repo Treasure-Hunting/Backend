@@ -188,6 +188,10 @@ class Last(TemplateView):
         kwargs['difficulty'] = player.difficulty
         return super().get(request, **kwargs)
 
+    def post(self, request, **kwargs):
+        player = get_player(request)
+        player.progress = 7
+        player.save()
 
 class ProgressError(View):
 
