@@ -1,0 +1,3 @@
+[submodule "oursite/treasure/templates"]
+	path = oursite/treasure/templates
+	url = git@github.com:Treasure-Hunting/Frontend.git
