@@ -78,6 +78,10 @@ class Hints(TemplateView):
         return self.get(request, *args, **kwargs)
 
 
+class Answer(TemplateView):
+    template_name = "treasure/answer.html"
+
+
 class Opening(TemplateView):
     template_name = 'treasure/opening.html'
 
