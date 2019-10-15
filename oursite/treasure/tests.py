@@ -44,9 +44,6 @@ class GoalTest(TestCase):
                                      [('/treasure/last/', 302)])
                     # 難易度の文字列化したものが表示されるはず。
                     self.assertContains(response, diff.name)
-                else:
-                    # 違うならエラーメッセージが表示されるはず。
-                    self.assertContains(response, '難易度が違います。他のＱＲコードを読んでください。')
 
     def test_go_goal(self):
         for player in Player.objects.all():  # playerの数だけ繰り返す。
