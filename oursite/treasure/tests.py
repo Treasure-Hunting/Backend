@@ -44,7 +44,7 @@ class GoalTest(TestCase):
                                      [('/treasure/last/', 302)])
                     # 難易度の文字列化したものが表示されるはず。
                     self.assertContains(response, diff.name)
-
+                # QRコードを読み込む文があるかのテストを、特に実行に支障がないため削除しました(raiga0310)
     def test_go_goal(self):
         for player in Player.objects.all():  # playerの数だけ繰り返す。
             s = self.client.session
