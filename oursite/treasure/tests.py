@@ -31,9 +31,9 @@ class GoalTest(TestCase):
             s = self.client.session
             s['player_pk'] = player.pk  # プレイヤーのpk(1スタート)をセッションに登録する。
             s.save()
-            player.progress = 5
-            player.save()
             for diff in Difficulty.objects.all():  # Difficultyの長さだけ繰り返す。
+                player.progress = 5
+                player.save()
                 # 与えたセッションを使い,/treasure/(難易度のpk)/on-goal/をGETする。
                 response = self.client.get('/treasure/' + str(diff.pk) +
                                            '/on-goal/', follow=True)
